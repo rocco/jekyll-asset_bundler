@@ -264,7 +264,7 @@ END
     end
 
     def cache_dir()
-      cache_dir = File.expand_path( "../_asset_bundler_cache",
+      cache_dir = File.expand_path( "../.asset_bundler-cache",
                                     @context.registers[:site].plugins.first )
       if( !File.directory?(cache_dir) )
         FileUtils.mkdir_p(cache_dir)
