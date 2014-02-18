@@ -144,7 +144,8 @@ END
       @base = @config['base_path']
 
       @filename_hash = Digest::MD5.hexdigest(@files.join())
-      if @@bundles.key?(@filename_hash)
+
+      if @@bundles.key?(@filename_hash) && !context.registers[:site].config['watch']
         @filename = @@bundles[@filename_hash].filename
         @base     = @@bundles[@filename_hash].base
       else
